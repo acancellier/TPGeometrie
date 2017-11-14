@@ -10,7 +10,6 @@ package Model;
  * @author Laura
  */
 public class Losange extends Polygone{
-    private Point[] points;
     
     public Losange(){
         points = new Point[4];
@@ -26,15 +25,6 @@ public class Losange extends Polygone{
         points[2] = p3;
         points[3] = p4;
     }
-
-    public Point getPoint(int index) {
-        return points[index];
-    }
-
-    public void setPoint(int index, Point point) {
-        this.points[index] = point;
-    }
- 
     
     public double longueur(){
         Segment cote = new Segment(points[0], points[1]);

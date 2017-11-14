@@ -12,27 +12,18 @@ import java.util.Random;
  * @author csnd2342
  */
 public class Cercle extends Polygone{
-    private Point centre;
+    
     private double rayon;
 
     public Cercle() {
-        centre= new Point();
-        Random valeur = new Random();
-        this.rayon= valeur.nextInt(20)-10;
+        points = new Point[1];
+        this.rayon= 10;
     }
 
     public Cercle(Point centre, double rayon) {
-        this.centre = centre;
+        points = new Point[1];
+        this.points[0] = centre;
         this.rayon = rayon;
-    }
-    
-
-    public Point getCentre() {
-        return centre;
-    }
-
-    public void setCentre(Point centre) {
-        this.centre = centre;
     }
 
     public double getRayon() {
@@ -51,9 +42,10 @@ public class Cercle extends Polygone{
     public boolean estValide(){
     return true;
     }
+
     @Override
     public String toString() {
-        return "Cercle{" + "centre=" + centre + ", rayon=" + rayon + '}';
+        return "Cercle{" + "rayon=" + rayon + '}';
     }
     
 }

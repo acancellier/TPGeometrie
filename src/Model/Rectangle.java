@@ -11,8 +11,6 @@ package Model;
  */
 public class Rectangle extends Polygone{
 
-    private Point[] points;
-
     public Rectangle() {
         points = new Point[4];
         for (int i = 0; i < points.length; i++) {
@@ -26,14 +24,6 @@ public class Rectangle extends Polygone{
         points[1] = p2;
         points[2] = p3;
         points[3] = p4;
-    }
-
-    public Point getPoint1(int index) {
-        return points[index];
-    }
-
-    public void setPoint1(int index, Point point) {
-        this.points[index] = point;
     }
 
     public double longueur() {

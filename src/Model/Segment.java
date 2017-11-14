@@ -10,8 +10,7 @@ package Model;
  * @author csnd2342
  */
 public class Segment extends Polygone{
-    private Point[] points;
-  
+
     public Segment(){
         points = new Point[2];
         points[0] = new Point();
@@ -22,15 +21,6 @@ public class Segment extends Polygone{
         points = new Point[2];
         this.points[0] = p1;
         this.points[1] = p2;                
-    }
-    
-    
-    public Point getPoint(int index) {
-        return points[index];
-    }
-
-    public void setPoint1(int index, Point point) {
-        points[index] = point;
     }
     
     public double longueur(){
@@ -84,7 +74,19 @@ public class Segment extends Polygone{
     public double perimetre(){
         return this.longueur();
     }
-
+    
+    public Point versVecteur(Segment s){
+        Point vecteur= new Point();
+        double vec1X = (points[1].getX() - points[0].getX());
+        double vec1Y = (points[1].getY() - points[0].getY());
+        
+        double vec2X = (s.points[1].getX() - s.points[0].getX());
+        double vec2Y = (s.points[1].getY() - s.points[0].getY());
+        
+        vecteur.setX(vec2X-vec1X);
+        vecteur.setY(vec2Y-vec1Y);
+        return vecteur;
+    }
     @Override
     public String toString() {
         return "Segment{" + "points=" + points + '}';

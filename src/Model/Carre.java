@@ -10,8 +10,6 @@ package Model;
  * @author csnd2342
  */
 public class Carre extends Polygone{
-    private Point[] points;
-    
     
     public Carre(){
         points = new Point[4];
@@ -28,15 +26,6 @@ public class Carre extends Polygone{
         points[2] = p3;
         points[3] = p4;
     }
-
-    public Point getPoint(int index) {
-        return points[index];
-    }
-
-    public void setPoint(int index, Point point) {
-        points[index] = point;
-    }
-
 
     public double longueur(){
         Segment cote = new Segment(points[0], points[1]);

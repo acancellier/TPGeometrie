@@ -20,8 +20,8 @@ public class Point {
     
     public Point(){
         Random valeur = new Random();
-        this.x = valeur.nextInt(20)-10;
-        this.y = valeur.nextInt(20)-10;
+        this.x = valeur.nextInt(500);
+        this.y = valeur.nextInt(400);
         this.nom = "";
         ++cpt_num;
         this.numero = cpt_num;      

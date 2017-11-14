@@ -14,6 +14,7 @@ import Model.Point;
 import Model.Polygone;
 import Model.Segment;
 import Model.Triangle;
+import View.Fenetre;
 import java.io.IOException;
 
         
@@ -24,5 +25,6 @@ public class Javametrie {
         MainRentree mr=new MainRentree();
         mr.run();
     }
+    
     
 }

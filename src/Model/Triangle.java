@@ -11,8 +11,7 @@ package Model;
  */
 public class Triangle extends Polygone{
 
-    private Point[] points;
-
+  
     public Triangle() {
         points = new Point[3];
         for (int i = 0; i < points.length; i++) {
@@ -26,14 +25,6 @@ public class Triangle extends Polygone{
         points[0] = p1;
         points[1] = p2;
         points[2] = p3;
-    }
-
-    public Point getPoint(int index) {
-        return points[index];
-    }
-
-    public void setPoint(int index,Point point) {
-        points[index] = point;
     }
 
     public boolean estEquilateral() {

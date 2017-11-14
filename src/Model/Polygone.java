@@ -12,6 +12,7 @@ package Model;
 public abstract class Polygone {
     private int num;
     private String nom;
+    protected Point[] points;
     
     public Polygone(){
         this.num =0 ;
@@ -54,8 +55,13 @@ public abstract class Polygone {
                 / (Math.sqrt(B.getX() - A.getX()) + Math.sqrt(B.getY() - A.getY()));
         return new Point(B.getX() + (B.getX() - A.getX()) * X, B.getY() + (A.getY() - A.getY()) * X);
     }
-    public abstract double aire();
-    public abstract double perimetre();
+    public Point getPoint(int index) {
+        return points[index];
+    }
+
+    public void setPoint(int index, Point point) {
+        this.points[index] = point;
+    }
     
     @Override
     public String toString() {
