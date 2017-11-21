@@ -10,10 +10,6 @@ package Javametrie;
  * @author Laura
  */
 
-import Model.Point;
-import Model.Polygone;
-import Model.Segment;
-import Model.Triangle;
 import View.Fenetre;
 import java.io.IOException;
 
@@ -22,9 +18,12 @@ import java.io.IOException;
 public class Javametrie {
     
     public static void main(String[] args) throws IOException {
-        MainRentree mr=new MainRentree();
-        mr.run();
+        /*MainRentree mr=new MainRentree();
+        mr.run();*/
+        Fenetre f = new Fenetre();
+        f.setVisible(true);
     }
+    
     
     
 }

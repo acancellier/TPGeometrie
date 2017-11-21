@@ -18,9 +18,13 @@ import java.util.Scanner;
  */
 public class MainRentree {
 
+    private BufferedWriter writer;
+    private String nom;
+    private String prenom;
+    
     public void run() throws IOException {
-        String nom = "";
-        String prenom = "";
+        nom = "";
+        prenom = "";
         Scanner sc = new Scanner(System.in);
         System.out.print("Votre nom : ");
         nom = sc.nextLine();
@@ -28,12 +32,11 @@ public class MainRentree {
         prenom = sc.nextLine();
         int nbTest = 0;
         int nbTestSuccess = 0;
-        BufferedWriter writer;
         /*
             Le fichier est envoyé sur le disque Réception, vous ne pouvez pas réécrire sur ce fichier une fois qu'il a été crée
             Commentez la ligne ci-dessous, décommentez celle suivante et mettez un chemin approprié
          */
-        String filename = "C:/Users/Julien/Documents" + nom + "_" + prenom + ".txt";
+        String filename = "C:/Users/Julien/Documents/" + nom + "_" + prenom + ".txt";
         //String filename = "C:/VOTRE CHEMIN/" + nom + "_" + prenom + ".txt";
 
         System.out.println(filename);
@@ -41,221 +44,304 @@ public class MainRentree {
         writer.write(nom + " " + prenom + "\n\n");
 
         // Point
+        // Segment
+        // Carré
+        // Rectangle
+        // Losange
+        // Triangle
+        // Cercle
+        
+        /// CLASSES ///
+        bPrint("####### CLASSES #######");
         try {
             nbTest++;
             Point p = new Point();
-            System.out.println("+ Point: Classe Point ok");
-            writer.write("+ Point: Classe Point ok\n");
+            bPrint("+ Point: Classe Point ok");
             nbTestSuccess++;
         } catch (Exception e) {
-            System.out.println("- Point: Pas de classe");
-            writer.write("- Point: Pas de classe\n");
+            bPrint("- Point: Pas de classe");
         }
+        try {
+            nbTest++;
+            Segment s = new Segment();
+            bPrint("+ Segment: Classe Segment ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Segment: pas de classe");
+        }
+        try {
+            nbTest++;
+            Carre c = new Carre();
+            bPrint("+ Carre: Classe Carre ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Carre: Pas de classe");
+        }
+        try {
+            nbTest++;
+            Rectangle r = new Rectangle();
+            bPrint("+ Rectangle: Classe Rectangle ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Rectangle: Pas de classe");
+        }
+        try {
+            nbTest++;
+            Losange l = new Losange();
+            bPrint("+ Losange: Classe Losange ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Losange: Pas de classe");
+        }
+        try {
+            nbTest++;
+            Triangle t = new Triangle();
+            bPrint("+ Triangle: Classe Triangle ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Triangle: Pas de classe");
+        }
+        try {
+            nbTest++;
+            Cercle c = new Cercle();
+            bPrint("+ Cercle: Classe Cercle ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Cercle: Pas de classe");
+        }
+        /// - CLASSES - ///
 
-        //Constructeurs
+        /// CONSTRUCTEURS ///
+        bPrint("####### CONSTRUCTEURS #######");
         try {
             nbTest++;
             Point p = new Point(7.5, -8.2);
-            System.out.println("+ Point: Point(double, double) ok");
-            writer.write("+ Point: Point(double, double) ok\n");
+            bPrint("+ Point: Point(double, double) ok");
             nbTestSuccess++;
         } catch (Exception e) {
-            System.out.println("- Point: Pas de constructeur Point(double, double)");
-            writer.write("- Point: Pas de constructeur Point(double, double)\n");
+            bPrint("- Point: Pas de constructeur Point(double, double)");
         }
-
         try {
             nbTest++;
             Point p = new Point("P1", 7.5, -8.2);
-            System.out.println("+ Point: Point(String, double, double) ok");
-            writer.write("+ Point: Point(String, double, double) ok\n");
+            bPrint("+ Point: Point(String, double, double) ok");
             nbTestSuccess++;
         } catch (Exception e) {
-            System.out.println("- Point: Pas de constructeur Point(String, double, double)");
-            writer.write("- Point: Pas de constructeur Point(String, double, double)\n");
+            bPrint("- Point: Pas de constructeur Point(String, double, double)");
         }
+        try {
+            nbTest++;
+            Point p1 = new Point(2.5, 5.5);
+            Point p2 = new Point(5.5, 5.5);
+            Segment s = new Segment(p1, p2);
+            bPrint("+ Segment: Segment(Point, Point) ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Point: Pas de constructeur Segment(Point, Point)");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(2.5, 5.5);
+            Point p2 = new Point(5.5, 5.5);
+            Segment s = new Segment(p1, p2);
+            bPrint("+ Segment: Segment(Point, Point) ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Point: Pas de constructeur Segment(Point, Point)");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 5);
+            Point p3 = new Point(5, 5);
+            Point p4 = new Point(5, 0);
+            Carre c = new Carre(p1, p2, p3, p4);
+            bPrint("+ Carre: Carre(Point, Point, Point, Point) ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Carre: Pas de constructeur Carre(Point, Point, Point, Point)");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 7);
+            Point p3 = new Point(3, 7);
+            Point p4 = new Point(3, 0);
+            Rectangle r = new Rectangle(p1, p2, p3, p4);
+            bPrint("+ Rectangle: Rectangle(Point, Point, Point, Point) ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Rectangle: Pas de constructeur Rectangle(Point, Point, Point, Point)");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(3, 0);
+            Point p2 = new Point(0, 4);
+            Point p3 = new Point(3, 8);
+            Point p4 = new Point(6, 4);
+            Losange l = new Losange(p1, p2, p3, p4);
+            bPrint("+ Losange: Losange(Point, Point, Point, Point) ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Losange: Pas de constructeur Losange(Point, Point, Point, Point)");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 4);
+            Point p3 = new Point(3, 0);
+            Triangle t = new Triangle(p1, p2, p3);
+            bPrint("+ Triangle: Triangle(Point, Point, Point) ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Triangle: Pas de constructeur Triangle(Point, Point, Point)");
+        }
+        try {
+            nbTest++;
+            Cercle c = new Cercle(new Point(), 5.5);
+            bPrint("+ Cercle: Cercle(Point, double) ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Cercle: Pas de constructeur Cercle(Point, double)");
+        }
+        /// - CONSTRUCTEURS - ///
 
-        // Getters
+        /// GETTERS ///
+        bPrint("####### GETTERS #######");
         try {
             nbTest++;
             Point p = new Point(7.5, -8.2);
             double x = p.getX();
             if (x == 7.5) {
-                System.out.println("+ Point: getter sur X ok");
-                writer.write("+ Point: getter sur X ok\n");
+                bPrint("+ Point: getter sur X ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Point: getter sur X mauvais");
-                writer.write("- Point: getter sur X mauvais\n");
+                bPrint("- Point: getter sur X mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Point: Pas de getter sur X");
-            writer.write("- Point: Pas de getter sur X\n");
+            bPrint("- Point: Pas de getter sur X");
         }
-
         try {
             nbTest++;
             Point p = new Point(7.5, -8.2);
             double y = p.getY();
             if (y == -8.2) {
-                System.out.println("+ Point: getter sur Y ok");
-                writer.write("+ Point: getter sur Y ok\n");
+                bPrint("+ Point: getter sur Y ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Point: getter sur Y mauvais");
-                writer.write("- Point: getter sur Y mauvais\n");
+                bPrint("- Point: getter sur Y mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Point: Pas de getter sur Y");
-            writer.write("- Point: Pas de getter sur Y\n");
+            bPrint("- Point: Pas de getter sur Y");
         }
-
         try {
             nbTest++;
             Point p = new Point("p1", 7.5, -8.2);
             String s = p.getNom();
             if ("p1".equals(s)) {
-                System.out.println("+ Point: getter sur nom ok");
-                writer.write("+ Point: getter sur nom ok\n");
+                bPrint("+ Point: getter sur nom ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Point: getter sur nom mauvais");
-                writer.write("- Point: getter sur nom mauvais\n");
+                bPrint("- Point: getter sur nom mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Point: Pas de getter sur nom");
-            writer.write("- Point: Pas de getter sur nom\n");
+            bPrint("- Point: Pas de getter sur nom");
         }
-
         try {
             nbTest++;
             Point p = new Point(7.5, -8.2);
             int s = p.getNumero();
-            System.out.println("+ Point: Getter sur numero ok");
-            writer.write("+ Point: Getter sur numero ok\n");
+            bPrint("+ Point: Getter sur numero ok");
             nbTestSuccess++;
         } catch (Exception e) {
-            System.out.println("- Point: Pas de getter sur numero");
-            writer.write("- Point: Pas de getter sur numero\n");
+            bPrint("- Point: Pas de getter sur numero");
         }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 5);
+            Point p3 = new Point(5, 5);
+            Point p4 = new Point(5, 0);
+            Carre c = new Carre(p1, p2, p3, p4);
+            Point p = c.getPoint(1);
+            bPrint("+ Carre: Getter ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Carre: Pas de getter");
+        }   
+        /// - GETTERS - ///
 
-        // Setters
+        /// SETTERS ///
+        bPrint("####### SETTERS #######");
         try {
             nbTest++;
             Point p = new Point(7.5, -8.2);
             p.setX(9.56);
             double x = p.getX();
             if (x == 9.56) {
-                System.out.println("+ Point: setter sur X ok");
-                writer.write("+ Point: setter sur X ok\n");
+                bPrint("+ Point: setter sur X ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Point: setter sur X mauvais");
-                writer.write("- Point: setter sur X mauvais\n");
+                bPrint("- Point: setter sur X mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Point: Pas de setter sur X");
-            writer.write("- Point: Pas de setter sur X\n");
+            bPrint("- Point: Pas de setter sur X");
         }
-
         try {
             nbTest++;
             Point p = new Point(7.5, -8.2);
             p.setY(-12.5);
             double y = p.getY();
             if (y == -12.5) {
-                System.out.println("+ Point: setter sur Y ok");
-                writer.write("+ Point: setter sur Y ok\n");
+                bPrint("+ Point: setter sur Y ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Point: setter sur Y mauvais");
-                writer.write("- Point: setter sur Y mauvais\n");
+                bPrint("- Point: setter sur Y mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Point: Pas de setter sur Y");
-            writer.write("- Point: Pas de setter sur Y\n");
+            bPrint("- Point: Pas de setter sur Y");
         }
-
         try {
             nbTest++;
             Point p = new Point("p2", 7.5, -8.2);
             p.setNom("p2");
             String s = p.getNom();
             if ("p2".equals(s)) {
-                System.out.println("+ Point: setter sur nom ok");
-                writer.write("+ Point: setter sur nom ok\n");
+                bPrint("+ Point: setter sur nom ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Point: setter sur nom mauvais");
-                writer.write("- Point: setter sur nom mauvais\n");
+                bPrint("- Point: setter sur nom mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Point: Pas de setter sur nom");
-            writer.write("- Point: Pas de setter sur nom\n");
+            bPrint("- Point: Pas de setter sur nom");
         }
-
         try {
             nbTest++;
             Point p = new Point(7.5, -8.2);
             int s = p.setNumero(7);
-            System.out.println("- Point: Setter sur numero ne doit pas exister");
-            writer.write("- Point: Setter sur numero ne doit pas exister\n");
+            bPrint("- Point: Setter sur numero ne doit pas exister");
         } catch (Exception e) {
-            System.out.println("+ Point: Pas de setter sur numero");
-            writer.write("+ Point: Pas de setter sur numero\n");
+            bPrint("+ Point: Pas de setter sur numero");
             nbTestSuccess++;
         }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 5);
+            Point p3 = new Point(5, 5);
+            Point p4 = new Point(8, 0);
+            Point p5 = new Point(5, 0);
+            Carre c = new Carre(p1, p2, p3, p4);
+            c.setPoint(3, p5);
+            bPrint("+ Carre: Setter ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Carre: Pas de Setter");
+        }    
+        /// - SETTERS - ///
 
-        // toString
-        try {
-            nbTest++;
-            Point p = new Point("p2", 7.5, -8.2);
-            String s = p.toString();
-            System.out.println("+ Point: toString ok");
-            writer.write("+ Point: toString ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Point: Pas de toString");
-            writer.write("- Point: Pas de toString\n");
-        }
-        // - Point
-
-        // Segment
-        try {
-            nbTest++;
-            Segment s = new Segment();
-            System.out.println("+ Segment: Classe Segment ok");
-            writer.write("+ Segment: Classe Segment ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Segment: pas de classe");
-            writer.write("- Segment: pas de classe\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(2.5, 5.5);
-            Point p2 = new Point(5.5, 5.5);
-            Segment s = new Segment(p1, p2);
-            System.out.println("+ Segment: Segment(Point, Point) ok");
-            writer.write("+ Segment: Segment(Point, Point) ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Point: Pas de constructeur Segment(Point, Point)");
-            writer.write("- Point: Pas de constructeur Segment(Point, Point)\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(2.5, 5.5);
-            Point p2 = new Point(5.5, 5.5);
-            Segment s = new Segment(p1, p2);
-            System.out.println("+ Segment: Segment(Point, Point) ok");
-            writer.write("+ Segment: Segment(Point, Point) ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Point: Pas de constructeur Segment(Point, Point)");
-            writer.write("- Point: Pas de constructeur Segment(Point, Point)\n");
-        }
-        // Longueur
+        /// LONGUEUR ///
+        bPrint("####### LONGUEUR #######");
         try {
             nbTest++;
             Point p1 = new Point(0, 0);
@@ -263,16 +349,13 @@ public class MainRentree {
             Segment s1 = new Segment(p1, p2);
             double r = s1.longueur();
             if (r == 3) {
-                System.out.println("+ Segment:  longueur() 0 ok");
-                writer.write("+ Segment:  longueur() 0 ok\n");
+                bPrint("+ Segment:  longueur() 0 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Segment:  longueur() 0 mauvais");
-                writer.write("- Segment:  longueur() 0 mauvais\n");
+                bPrint("- Segment:  longueur() 0 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode longueur()");
-            writer.write("- Segment: Pas de methode longueur()\n");
+            bPrint("- Segment: Pas de methode longueur()");
         }
         try {
             nbTest++;
@@ -281,16 +364,13 @@ public class MainRentree {
             Segment s1 = new Segment(p1, p2);
             double r = s1.longueur();
             if (r - 3 * Math.sqrt(2) < 0.001) {
-                System.out.println("+ Segment:  longueur() 1 ok");
-                writer.write("+ Segment:  longueur() 1 ok\n");
+                bPrint("+ Segment:  longueur() 1 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Segment:  longueur() 1 mauvais");
-                writer.write("- Segment:  longueur() 1 mauvais\n");
+                bPrint("- Segment:  longueur() 1 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode longueur()");
-            writer.write("- Segment: Pas de methode longueur()\n");
+            bPrint("- Segment: Pas de methode longueur()");
         }
         try {
             nbTest++;
@@ -299,18 +379,172 @@ public class MainRentree {
             Segment s1 = new Segment(p1, p2);
             double r = s1.longueur();
             if (r == 9) {
-                System.out.println("+ Segment:  longueur() 2 ok");
-                writer.write("+ Segment:  longueur() 2 ok\n");
+                bPrint("+ Segment:  longueur() 2 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Segment:  longueur() 2 mauvais");
-                writer.write("- Segment:  longueur() 2 mauvais\n");
+                bPrint("- Segment:  longueur() 2 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode longueur()");
-            writer.write("- Segment: Pas de methode longueur()\n");
+            bPrint("- Segment: Pas de methode longueur()");
         }
-        // Parallele
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 5);
+            Point p3 = new Point(5, 5);
+            Point p4 = new Point(5, 0);
+            Carre c = new Carre(p1, p2, p3, p4);
+            double r = c.longueur();
+            if (r == 5) {
+                bPrint("+ Carre: longueur() ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Carre: longueur() mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Carre: Pas de methode longueur()");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 7);
+            Point p3 = new Point(3, 7);
+            Point p4 = new Point(3, 0);
+            Rectangle r = new Rectangle(p1, p2, p3, p4);
+            double res = r.longueur();
+            if (res == 7) {
+                bPrint("+ Rectangle: longueur() ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Rectangle: longueur() mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Rectangle: Pas de methode longueur()");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 7);
+            Point p3 = new Point(3, 7);
+            Point p4 = new Point(3, 0);
+            Rectangle r = new Rectangle(p1, p2, p3, p4);
+            double res = r.largeur();
+            if (res == 3) {
+                bPrint("+ Rectangle: largeur() ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Rectangle: largeur() mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Rectangle: Pas de methode largeur()");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(3, 0);
+            Point p2 = new Point(0, 4);
+            Point p3 = new Point(3, 8);
+            Point p4 = new Point(6, 4);
+            Losange l = new Losange(p1, p2, p3, p4);
+            double res = l.longueur();
+            if (res == 5) {
+                bPrint("+ Losange: longueur() ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Losange: longueur() mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Losange: Pas de methode longueur()");
+        }
+        /// - LONGUEUR - ///
+
+        /// TOSTRING ///
+        bPrint("####### TOSTRING #######");
+        try {
+            nbTest++;
+            Point p = new Point("p2", 7.5, -8.2);
+            String s = p.toString();
+            bPrint("+ Point: toString ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Point: Pas de toString");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(2.5, 5.5);
+            Point p2 = new Point(5.5, 8.5);
+            Segment s1 = new Segment(p1, p2);
+            String r = s1.toString();
+            bPrint("+ Segment: toString ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Segment: Pas de toString");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 5);
+            Point p3 = new Point(5, 5);
+            Point p4 = new Point(5, 0);
+            Carre c = new Carre(p1, p2, p3, p4);
+            String r = c.toString();
+            bPrint("+ Carre: toString ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Carre: Pas de toString");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 7);
+            Point p3 = new Point(3, 7);
+            Point p4 = new Point(3, 0);
+            Rectangle r = new Rectangle(p1, p2, p3, p4);
+            String res = r.toString();
+            bPrint("+ Rectangle: toString ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Rectangle: Pas de toString");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(5, 0);
+            Point p2 = new Point(0, 2);
+            Point p3 = new Point(5, 4);
+            Point p4 = new Point(10, 2);
+            Losange l = new Losange(p1, p2, p3, p4);
+            String res = l.toString();
+            bPrint("+ Losange: toString ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Losange: Pas de toString");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 4);
+            Point p3 = new Point(3, 0);
+            Triangle t = new Triangle(p1, p2, p3);
+            String res = t.toString();
+            bPrint("+ Triangle: toString ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Triangle: Pas de toString");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Cercle c = new Cercle(p1, 5.5);
+            String res = c.toString();
+            bPrint("+ Cercle: toString ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Cercle: Pas de toString");
+        }
+        /// - TOSTRING - ///
+        
+        
+        /// PARALELLE ///
+        bPrint("####### PARALELLE #######");
         try {
             nbTest++;
             Point p1 = new Point(0, 0);
@@ -321,16 +555,13 @@ public class MainRentree {
             Segment s2 = new Segment(p3, p4);
             boolean r = s1.estParallele(s2);
             if (r) {
-                System.out.println("+ Segment:  estParallele(Segment) 1 ok");
-                writer.write("+ Segment:  estParallele(Segment) 1 ok\n");
+                bPrint("+ Segment:  estParallele(Segment) 1 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Segment:  estParallele(Segment) 1 mauvais");
-                writer.write("- Segment:  estParallele(Segment) 1 mauvais\n");
+                bPrint("- Segment:  estParallele(Segment) 1 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode estParallele(Segment)");
-            writer.write("- Segment: Pas de methode estParallele(Segment)\n");
+            bPrint("- Segment: Pas de methode estParallele(Segment)");
         }
         try {
             nbTest++;
@@ -342,16 +573,13 @@ public class MainRentree {
             Segment s2 = new Segment(p3, p4);
             boolean r = s1.estParallele(s2);
             if (r) {
-                System.out.println("+ Segment:  estParallele(Segment) 2 ok");
-                writer.write("+ Segment:  estParallele(Segment) 2 ok\n");
+                bPrint("+ Segment:  estParallele(Segment) 2 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Segment:  estParallele(Segment) 2 mauvais");
-                writer.write("- Segment:  estParallele(Segment) 2 mauvais\n");
+                bPrint("- Segment:  estParallele(Segment) 2 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode estParallele(Segment)");
-            writer.write("- Segment: Pas de methode estParallele(Segment)\n");
+            bPrint("- Segment: Pas de methode estParallele(Segment)");
         }
         try {
             nbTest++;
@@ -363,18 +591,18 @@ public class MainRentree {
             Segment s2 = new Segment(p3, p4);
             boolean r = s1.estParallele(s2);
             if (r) {
-                System.out.println("+ Segment:  estParallele(Segment) 3 ok");
-                writer.write("+ Segment:  estParallele(Segment) 3 ok\n");
+                bPrint("+ Segment:  estParallele(Segment) 3 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Segment:  estParallele(Segment) 3 mauvais");
-                writer.write("- Segment:  estParallele(Segment) 3 mauvais\n");
+                bPrint("- Segment:  estParallele(Segment) 3 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode estParallele(Segment)");
-            writer.write("- Segment: Pas de methode estParallele(Segment)\n");
+            bPrint("- Segment: Pas de methode estParallele(Segment)");
         }
-        // Perpendiculaire
+        /// - PARALELLE - ///
+        
+        /// PERPENDICULAIRE ///
+        bPrint("####### PERPENDICULAIRE #######");
         try {
             nbTest++;
             Point p1 = new Point(0, 0);
@@ -385,16 +613,13 @@ public class MainRentree {
             Segment s2 = new Segment(p3, p4);
             boolean r = s1.estPerpendiculaire(s2);
             if (!r) {
-                System.out.println("+ Segment:  estPerpendiculaire(Segment) 0 ok");
-                writer.write("+ Segment:  estPerpendiculaire(Segment) 0 ok\n");
+                bPrint("+ Segment:  estPerpendiculaire(Segment) 0 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Segment:  estPerpendiculaire(Segment) 0 mauvais");
-                writer.write("- Segment:  estPerpendiculaire(Segment) 0 mauvais\n");
+                bPrint("- Segment:  estPerpendiculaire(Segment) 0 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode estPerpendiculaire(Segment)");
-            writer.write("- Segment: Pas de methode estPerpendiculaire(Segment)\n");
+            bPrint("- Segment: Pas de methode estPerpendiculaire(Segment)");
         }
         try {
             nbTest++;
@@ -406,16 +631,13 @@ public class MainRentree {
             Segment s2 = new Segment(p3, p4);
             boolean r = s1.estPerpendiculaire(s2);
             if (r) {
-                System.out.println("+ Segment:  estPerpendiculaire(Segment) 1 ok");
-                writer.write("+ Segment:  estPerpendiculaire(Segment) 1 ok\n");
+                bPrint("+ Segment:  estPerpendiculaire(Segment) 1 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Segment:  estPerpendiculaire(Segment) 1 mauvais");
-                writer.write("- Segment:  estPerpendiculaire(Segment) 1 mauvais\n");
+                bPrint("- Segment:  estPerpendiculaire(Segment) 1 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode estPerpendiculaire(Segment)");
-            writer.write("- Segment: Pas de methode estPerpendiculaire(Segment)\n");
+            bPrint("- Segment: Pas de methode estPerpendiculaire(Segment)");
         }
         try {
             nbTest++;
@@ -427,138 +649,30 @@ public class MainRentree {
             Segment s2 = new Segment(p3, p4);
             boolean r = s1.estPerpendiculaire(s2);
             if (!r) {
-                System.out.println("+ Segment:  estPerpendiculaire(Segment) 2 ok");
-                writer.write("+ Segment:  estPerpendiculaire(Segment) 2 ok\n");
+                bPrint("+ Segment:  estPerpendiculaire(Segment) 2 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Segment:  estPerpendiculaire(Segment) 2 mauvais");
-                writer.write("- Segment:  estPerpendiculaire(Segment) 2 mauvais\n");
+                bPrint("- Segment:  estPerpendiculaire(Segment) 2 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode estPerpendiculaire(Segment)");
-            writer.write("- Segment: Pas de methode estPerpendiculaire(Segment)\n");
+            bPrint("- Segment: Pas de methode estPerpendiculaire(Segment)");
         }
-        // Aire perimetre
+        /// - PERPENDICULAIRE - ///
+        
+        
+        /// AIRE ///
+        bPrint("####### AIRE #######");
         try {
             nbTest++;
             Point p1 = new Point(2.5, 5.5);
             Point p2 = new Point(5.5, 8.5);
             Segment s1 = new Segment(p1, p2);
             double r = s1.aire();
-            System.out.println("+ Segment: aire() ok");
-            writer.write("+ Segment: aire() ok\n");
+            bPrint("+ Segment: aire() ok");
             nbTestSuccess++;
         } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode aire()");
-            writer.write("- Segment: Pas de methode aire()\n");
+            bPrint("- Segment: Pas de methode aire()");
         }
-        try {
-            nbTest++;
-            Point p1 = new Point(2.5, 5.5);
-            Point p2 = new Point(5.5, 8.5);
-            Segment s1 = new Segment(p1, p2);
-            double r = s1.perimetre();
-            System.out.println("+ Segment: perimetre() ok");
-            writer.write("+ Segment: perimetre() ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Segment: Pas de methode perimetre()");
-            writer.write("- Segment: Pas de methode perimetre()\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(2.5, 5.5);
-            Point p2 = new Point(5.5, 8.5);
-            Segment s1 = new Segment(p1, p2);
-            String r = s1.getClass().getSuperclass().toString();
-            if (r.equals("class Model.Polygone")) {
-                System.out.println("+ Segment: héritage ok");
-                writer.write("+ Segment: héritage ok\n");
-            } else {
-                System.out.println("- Segment: héritage mauvais");
-                writer.write("- Segment: héritage mauvais\n");                
-            }
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Segment: Erreur héritage");
-            writer.write("- Segment: Erreur héritage\n");
-        }
-
-        // toString
-        try {
-            nbTest++;
-            Point p1 = new Point(2.5, 5.5);
-            Point p2 = new Point(5.5, 8.5);
-            Segment s1 = new Segment(p1, p2);
-            String r = s1.toString();
-            System.out.println("+ Segment: toString ok");
-            writer.write("+ Segment: toString ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Segment: Pas de toString");
-            writer.write("- Segment: Pas de toString\n");
-        }
-        // - Segment
-
-        // Carre
-        try {
-            nbTest++;
-            Carre c = new Carre();
-            System.out.println("+ Carre: Classe Carre ok");
-            writer.write("+ Carre: Classe Carre ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Carre: Pas de classe");
-            writer.write("- Carre: Pas de classe\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 5);
-            Point p3 = new Point(5, 5);
-            Point p4 = new Point(5, 0);
-            Carre c = new Carre(p1, p2, p3, p4);
-            System.out.println("+ Carre: Carre(Point, Point, Point, Point) ok");
-            writer.write("+ Carre: Carre(Point, Point, Point, Point) ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Carre: Pas de constructeur Carre(Point, Point, Point, Point)");
-            writer.write("- Carre: Pas de constructeur Carre(Point, Point, Point, Point)\n");
-        }
-        // Getter
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 5);
-            Point p3 = new Point(5, 5);
-            Point p4 = new Point(5, 0);
-            Carre c = new Carre(p1, p2, p3, p4);
-            Point p = c.getPoint(1);
-            System.out.println("+ Carre: Getter ok");
-            writer.write("+ Carre: Getter ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Carre: Pas de getter");
-            writer.write("- Carre: Pas de getter\n");
-        }
-        // Setter
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 5);
-            Point p3 = new Point(5, 5);
-            Point p4 = new Point(8, 0);
-            Point p5 = new Point(5, 0);
-            Carre c = new Carre(p1, p2, p3, p4);
-            c.setPoint(3, p5);
-            System.out.println("+ Carre: Setter ok");
-            writer.write("+ Carre: Setter ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Carre: Pas de Setter");
-            writer.write("- Carre: Pas de Setter\n");
-        }
-        // Aire perimetre
         try {
             nbTest++;
             Point p1 = new Point(0, 0);
@@ -568,16 +682,91 @@ public class MainRentree {
             Carre c = new Carre(p1, p2, p3, p4);
             double r = c.aire();
             if (r == 25) {
-                System.out.println("+ Carre: aire() ok");
-                writer.write("+ Carre: aire() ok\n");
+                bPrint("+ Carre: aire() ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Carre: aire() mauvais");
-                writer.write("- Carre: aire() mauvais\n");
+                bPrint("- Carre: aire() mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Carre: Pas de methode aire()");
-            writer.write("- Carre: Pas de methode aire()\n");
+            bPrint("- Carre: Pas de methode aire()");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 7);
+            Point p3 = new Point(3, 7);
+            Point p4 = new Point(3, 0);
+            Rectangle r = new Rectangle(p1, p2, p3, p4);
+            double res = r.aire();
+            if (res == 21) {
+                bPrint("+ Rectangle: aire() ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Rectangle: aire() mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Rectangle: Pas de methode aire()");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(3, 0);
+            Point p2 = new Point(0, 4);
+            Point p3 = new Point(3, 8);
+            Point p4 = new Point(6, 4);
+            Losange l = new Losange(p1, p2, p3, p4);
+            double res = l.aire();
+            if (res == 24) {
+                bPrint("+ Losange: aire() ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Losange: aire() mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Losange: Pas de methode aire()");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 4);
+            Point p3 = new Point(3, 0);
+            Triangle t = new Triangle(p1, p2, p3);
+            double res = t.aire();
+            if (res == 10) {
+                bPrint("+ Triangle: aire() ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Triangle: aire() mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Triangle: Pas de methode aire()");
+        }
+        try {
+            nbTest++;
+            Cercle c = new Cercle(new Point(), 5.5);
+            double p = c.aire();
+            if (Math.abs(p - Math.PI * 5.5 * 5.5) < 0.001) {
+                bPrint("+ Cercle: aire ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Cercle: aire mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Cercle: Pas de méthode aire");
+        }
+        /// - AIRE - ///
+        
+        /// PERIMETRE ///    
+        bPrint("####### PERIMETRE #######");
+        try {
+            nbTest++;
+            Point p1 = new Point(2.5, 5.5);
+            Point p2 = new Point(5.5, 8.5);
+            Segment s1 = new Segment(p1, p2);
+            double r = s1.perimetre();
+            bPrint("+ Segment: perimetre() ok");
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Segment: Pas de methode perimetre()");
         }
         try {
             nbTest++;
@@ -588,162 +777,13 @@ public class MainRentree {
             Carre c = new Carre(p1, p2, p3, p4);
             double r = c.perimetre();
             if (r == 20) {
-                System.out.println("+ Carre: perimetre() ok");
-                writer.write("+ Carre: perimetre() ok\n");
+                bPrint("+ Carre: perimetre() ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Carre: perimetre() mauvais");
-                writer.write("- Carre: perimetre() mauvais\n");
+                bPrint("- Carre: perimetre() mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Carre: Pas de methode perimetre()");
-            writer.write("- Carre: Pas de methode perimetre()\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 5);
-            Point p3 = new Point(5, 5);
-            Point p4 = new Point(5, 0);
-            Carre c = new Carre(p1, p2, p3, p4);
-            double r = c.longueur();
-            if (r == 5) {
-                System.out.println("+ Carre: longueur() ok");
-                writer.write("+ Carre: longueur() ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Carre: longueur() mauvais");
-                writer.write("- Carre: longueur() mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Carre: Pas de methode longueur()");
-            writer.write("- Carre: Pas de methode longueur()\n");
-        }
-
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 7);
-            Point p3 = new Point(7, 7);
-            Point p4 = new Point(7, 0);
-            Carre r = new Carre(p1, p2, p3, p4);
-            boolean res = r.estValide();
-            if (res) {
-                System.out.println("+ Carre: estValide() 0 ok");
-                writer.write("+ Carre: estValide() 0 ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Carre: estValide() 0 mauvais");
-                writer.write("- Carre: estValide() 0 mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Carre: Pas de methode estValide()");
-            writer.write("- Carre: Pas de methode estValide()\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 7);
-            Point p3 = new Point(3, 7);
-            Point p4 = new Point(3, 0);
-            Carre r = new Carre(p1, p2, p3, p4);
-            boolean res = r.estValide();
-            if (!res) {
-                System.out.println("+ Carre: estValide() 1 ok");
-                writer.write("+ Carre: estValide() 1 ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Carre: estValide() 1 mauvais");
-                writer.write("- Carre: estValide() 1 mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Carre: Pas de methode estValide()");
-            writer.write("- Carre: Pas de methode estValide()\n");
-        }
-
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 5);
-            Point p3 = new Point(5, 5);
-            Point p4 = new Point(5, 0);
-            Carre c = new Carre(p1, p2, p3, p4);
-            String r = c.getClass().getSuperclass().toString();
-            if (r.equals("class Model.Polygone")) {
-                System.out.println("+ Carre: héritage ok");
-                writer.write("+ Carre: héritage ok\n");
-            } else {
-                System.out.println("- Carre: héritage mauvais");
-                writer.write("- Carre: héritage mauvais\n");                
-            }
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Carre: Erreur héritage");
-            writer.write("- Carre: Erreur héritage\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 5);
-            Point p3 = new Point(5, 5);
-            Point p4 = new Point(5, 0);
-            Carre c = new Carre(p1, p2, p3, p4);
-            String r = c.toString();
-            System.out.println("+ Carre: toString ok");
-            writer.write("+ Carre: toString ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Carre: Pas de toString");
-            writer.write("- Carre: Pas de toString\n");
-        }
-        // - Carre
-
-        // Rectangle
-        try {
-            nbTest++;
-            Rectangle r = new Rectangle();
-            System.out.println("+ Rectangle: Classe Rectangle ok");
-            writer.write("+ Rectangle: Classe Rectangle ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Rectangle: Pas de classe");
-            writer.write("- Rectangle: Pas de classe\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 7);
-            Point p3 = new Point(3, 7);
-            Point p4 = new Point(3, 0);
-            Rectangle r = new Rectangle(p1, p2, p3, p4);
-            System.out.println("+ Rectangle: Rectangle(Point, Point, Point, Point) ok");
-            writer.write("+ Rectangle: Rectangle(Point, Point, Point, Point) ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Rectangle: Pas de constructeur Rectangle(Point, Point, Point, Point)");
-            writer.write("- Rectangle: Pas de constructeur Rectangle(Point, Point, Point, Point)\n");
-        }
-
-        // Aire perimetre
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 7);
-            Point p3 = new Point(3, 7);
-            Point p4 = new Point(3, 0);
-            Rectangle r = new Rectangle(p1, p2, p3, p4);
-            double res = r.aire();
-            if (res == 21) {
-                System.out.println("+ Rectangle: aire() ok");
-                writer.write("+ Rectangle: aire() ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Rectangle: aire() mauvais");
-                writer.write("- Rectangle: aire() mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Rectangle: Pas de methode aire()");
-            writer.write("- Rectangle: Pas de methode aire()\n");
+            bPrint("- Carre: Pas de methode perimetre()");
         }
         try {
             nbTest++;
@@ -754,181 +794,13 @@ public class MainRentree {
             Rectangle r = new Rectangle(p1, p2, p3, p4);
             double res = r.perimetre();
             if (res == 20) {
-                System.out.println("+ Rectangle: perimetre() ok");
-                writer.write("+ Rectangle: perimetre() ok\n");
+                bPrint("+ Rectangle: perimetre() ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Rectangle: perimetre() mauvais");
-                writer.write("- Rectangle: perimetre() mauvais\n");
+                bPrint("- Rectangle: perimetre() mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Rectangle: Pas de methode perimetre()");
-            writer.write("- Rectangle: Pas de methode perimetre()\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 7);
-            Point p3 = new Point(3, 7);
-            Point p4 = new Point(3, 0);
-            Rectangle r = new Rectangle(p1, p2, p3, p4);
-            double res = r.longueur();
-            if (res == 7) {
-                System.out.println("+ Rectangle: longueur() ok");
-                writer.write("+ Rectangle: longueur() ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Rectangle: longueur() mauvais");
-                writer.write("- Rectangle: longueur() mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Rectangle: Pas de methode longueur()");
-            writer.write("- Rectangle: Pas de methode longueur()\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 7);
-            Point p3 = new Point(3, 7);
-            Point p4 = new Point(3, 0);
-            Rectangle r = new Rectangle(p1, p2, p3, p4);
-            double res = r.largeur();
-            if (res == 3) {
-                System.out.println("+ Rectangle: largeur() ok");
-                writer.write("+ Rectangle: largeur() ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Rectangle: largeur() mauvais");
-                writer.write("- Rectangle: largeur() mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Rectangle: Pas de methode largeur()");
-            writer.write("- Rectangle: Pas de methode largeur()\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 7);
-            Point p3 = new Point(3, 7);
-            Point p4 = new Point(3, 0);
-            Rectangle r = new Rectangle(p1, p2, p3, p4);
-            boolean res = r.estValide();
-            if (res) {
-                System.out.println("+ Rectangle: estValide() 0 ok");
-                writer.write("+ Rectangle: estValide() 0 ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Rectangle: estValide() 0 mauvais");
-                writer.write("- Rectangle: estValide() 0 mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Rectangle: Pas de methode estValide()");
-            writer.write("- Rectangle: Pas de methode estValide()\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(4, 7);
-            Point p3 = new Point(3, 7);
-            Point p4 = new Point(3, 11);
-            Rectangle r = new Rectangle(p1, p2, p3, p4);
-            boolean res = r.estValide();
-            if (!res) {
-                System.out.println("+ Rectangle: estValide() 1 ok");
-                writer.write("+ Rectangle: estValide() 1 ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Rectangle: estValide() 1 mauvais");
-                writer.write("- Rectangle: estValide() 1 mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Rectangle: Pas de methode estValide()");
-            writer.write("- Rectangle: Pas de methode estValide()\n");
-        }
-
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(4, 7);
-            Point p3 = new Point(3, 7);
-            Point p4 = new Point(3, 11);
-            Rectangle c = new Rectangle(p1, p2, p3, p4);
-            String r = c.getClass().getSuperclass().toString();
-            if (r.equals("class Model.Polygone")) {
-                System.out.println("+ Rectangle: héritage ok");
-                writer.write("+ Rectangle: héritage ok\n");
-            } else {
-                System.out.println("- Rectangle: héritage mauvais");
-                writer.write("- Rectangle: héritage mauvais\n");                
-            }
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Rectangle: Erreur héritage");
-            writer.write("- Rectangle: Erreur héritage\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 7);
-            Point p3 = new Point(3, 7);
-            Point p4 = new Point(3, 0);
-            Rectangle r = new Rectangle(p1, p2, p3, p4);
-            String res = r.toString();
-            System.out.println("+ Rectangle: toString ok");
-            writer.write("+ Rectangle: toString ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Rectangle: Pas de toString");
-            writer.write("- Rectangle: Pas de toString\n");
-        }
-        // - Rectangle 
-
-        // Losange
-        try {
-            nbTest++;
-            Losange l = new Losange();
-            System.out.println("+ Losange: Classe Losange ok");
-            writer.write("+ Losange: Classe Losange ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Losange: Pas de classe");
-            writer.write("- Losange: Pas de classe\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(3, 0);
-            Point p2 = new Point(0, 4);
-            Point p3 = new Point(3, 8);
-            Point p4 = new Point(6, 4);
-            Losange l = new Losange(p1, p2, p3, p4);
-            System.out.println("+ Losange: Losange(Point, Point, Point, Point) ok");
-            writer.write("+ Losange: Losange(Point, Point, Point, Point) ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Losange: Pas de constructeur Losange(Point, Point, Point, Point)");
-            writer.write("- Losange: Pas de constructeur Losange(Point, Point, Point, Point)\n");
-        }
-
-        // Aire perimetre
-        try {
-            nbTest++;
-            Point p1 = new Point(3, 0);
-            Point p2 = new Point(0, 4);
-            Point p3 = new Point(3, 8);
-            Point p4 = new Point(6, 4);
-            Losange l = new Losange(p1, p2, p3, p4);
-            double res = l.aire();
-            if (res == 24) {
-                System.out.println("+ Losange: aire() ok");
-                writer.write("+ Losange: aire() ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Losange: aire() mauvais");
-                writer.write("- Losange: aire() mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Losange: Pas de methode aire()");
-            writer.write("- Losange: Pas de methode aire()\n");
+            bPrint("- Rectangle: Pas de methode perimetre()");
         }
         try {
             nbTest++;
@@ -939,38 +811,199 @@ public class MainRentree {
             Losange l = new Losange(p1, p2, p3, p4);
             double res = l.perimetre();
             if (res == 20) {
-                System.out.println("+ Losange: perimetre() ok");
-                writer.write("+ Losange: perimetre() ok\n");
+                bPrint("+ Losange: perimetre() ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Losange: perimetre() mauvais");
-                writer.write("- Losange: perimetre() mauvais\n");
+                bPrint("- Losange: perimetre() mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Losange: Pas de methode perimetre()");
-            writer.write("- Losange: Pas de methode perimetre()\n");
+            bPrint("- Losange: Pas de methode perimetre()");
         }
         try {
             nbTest++;
-            Point p1 = new Point(3, 0);
+            Point p1 = new Point(0, 0);
             Point p2 = new Point(0, 4);
-            Point p3 = new Point(3, 8);
-            Point p4 = new Point(6, 4);
-            Losange l = new Losange(p1, p2, p3, p4);
-            double res = l.longueur();
-            if (res == 5) {
-                System.out.println("+ Losange: longueur() ok");
-                writer.write("+ Losange: longueur() ok\n");
+            Point p3 = new Point(3, 0);
+            Triangle t = new Triangle(p1, p2, p3);
+            double res = t.perimetre();
+            if (res == 12) {
+                bPrint("+ Triangle: perimetre() ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Losange: longueur() mauvais");
-                writer.write("- Losange: longueur() mauvais\n");
+                bPrint("- Triangle: perimetre() mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Losange: Pas de methode longueur()");
-            writer.write("- Losange: Pas de methode longueur()\n");
+            bPrint("- Triangle: Pas de methode perimetre()");
         }
-
+        try {
+            nbTest++;
+            Cercle c = new Cercle(new Point(), 5.5);
+            double p = c.perimetre();
+            if (Math.abs(p - Math.PI * 2 * 5.5) < 0.001) {
+                bPrint("+ Cercle: perimetre ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Cercle: perimetre mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Cercle: Pas de méthode perimetre");
+        }
+        /// - PERIMETRE ///
+        
+        
+        /// HERITAGE ///
+        bPrint("####### HERITAGE #######");
+        try {
+            nbTest++;
+            Point p1 = new Point(2.5, 5.5);
+            Point p2 = new Point(5.5, 8.5);
+            Segment s1 = new Segment(p1, p2);
+            String r = s1.getClass().getSuperclass().toString();
+            if (r.equals("class Model.Polygone")) {
+                bPrint("+ Segment: héritage ok");
+            } else {
+                bPrint("- Segment: héritage mauvais");
+            }
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Segment: Erreur héritage");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 5);
+            Point p3 = new Point(5, 5);
+            Point p4 = new Point(5, 0);
+            Carre c = new Carre(p1, p2, p3, p4);
+            String r = c.getClass().getSuperclass().toString();
+            if (r.equals("class Model.Polygone")) {
+                bPrint("+ Carre: héritage ok");
+            } else {
+                bPrint("- Carre: héritage mauvais");
+            }
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Carre: Erreur héritage");
+        }        
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(4, 7);
+            Point p3 = new Point(3, 7);
+            Point p4 = new Point(3, 11);
+            Rectangle c = new Rectangle(p1, p2, p3, p4);
+            String r = c.getClass().getSuperclass().toString();
+            if (r.equals("class Model.Polygone")) {
+                bPrint("+ Rectangle: héritage ok");
+            } else {
+                bPrint("- Rectangle: héritage mauvais");
+            }
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Rectangle: Erreur héritage");
+        } try {
+            nbTest++;
+            Point p1 = new Point(5, 0);
+            Point p2 = new Point(0, 2);
+            Point p3 = new Point(5, 4);
+            Point p4 = new Point(10, 2);
+            Losange l = new Losange(p1, p2, p3, p4);
+            String r = l.getClass().getSuperclass().toString();
+            if (r.equals("class Model.Polygone")) {
+                bPrint("+ Losange: héritage ok");
+            } else {
+                bPrint("- Losange: héritage mauvais");
+            }
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Rectangle: Erreur héritage");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 4);
+            Point p3 = new Point(3, 0);
+            Triangle t = new Triangle(p1, p2, p3);
+            String r = t.getClass().getSuperclass().toString();
+            if (r.equals("class Model.Polygone")) {
+                bPrint("+ Triangle: héritage ok");
+            } else {
+                bPrint("- Triangle: héritage mauvais");
+            }
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Triangle: Erreur héritage");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Cercle c = new Cercle(p1, 5.5);
+            String r = c.getClass().getSuperclass().toString();
+            if (r.equals("class Model.Polygone")) {
+                bPrint("+ Cercle: héritage ok");
+            } else {
+                bPrint("- Cercle: héritage mauvais");
+            }
+            nbTestSuccess++;
+        } catch (Exception e) {
+            bPrint("- Cercle: Erreur héritage");
+        }
+        /// - HERITAGE ///
+        
+        
+        /// ESTVALIDE ///
+        bPrint("####### VALIDITE #######");
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 7);
+            Point p3 = new Point(3, 7);
+            Point p4 = new Point(3, 0);
+            Carre r = new Carre(p1, p2, p3, p4);
+            boolean res = r.estValide();
+            if (!res) {
+                bPrint("+ Carre: estValide() 1 ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Carre: estValide() 1 mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Carre: Pas de methode estValide()");
+        }        
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(0, 7);
+            Point p3 = new Point(3, 7);
+            Point p4 = new Point(3, 0);
+            Rectangle r = new Rectangle(p1, p2, p3, p4);
+            boolean res = r.estValide();
+            if (res) {
+                bPrint("+ Rectangle: estValide() 0 ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Rectangle: estValide() 0 mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Rectangle: Pas de methode estValide()");
+        }
+        try {
+            nbTest++;
+            Point p1 = new Point(0, 0);
+            Point p2 = new Point(4, 7);
+            Point p3 = new Point(3, 7);
+            Point p4 = new Point(3, 11);
+            Rectangle r = new Rectangle(p1, p2, p3, p4);
+            boolean res = r.estValide();
+            if (!res) {
+                bPrint("+ Rectangle: estValide() 1 ok");
+                nbTestSuccess++;
+            } else {
+                bPrint("- Rectangle: estValide() 1 mauvais");
+            }
+        } catch (Exception e) {
+            bPrint("- Rectangle: Pas de methode estValide()");
+        }
         try {
             nbTest++;
             Point p1 = new Point(0, 0);
@@ -980,16 +1013,13 @@ public class MainRentree {
             Losange r = new Losange(p1, p2, p3, p4);
             boolean res = r.estValide();
             if (res) {
-                System.out.println("+ Losange: estValide() 0 ok");
-                writer.write("+ Losange: estValide() 0 ok\n");
+                bPrint("+ Losange: estValide() 0 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Losange: estValide() 0 mauvais");
-                writer.write("- Losange: estValide() 0 mauvais\n");
+                bPrint("- Losange: estValide() 0 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Losange: Pas de methode estValide()");
-            writer.write("- Losange: Pas de methode estValide()\n");
+            bPrint("- Losange: Pas de methode estValide()");
         }
         try {
             nbTest++;
@@ -1000,118 +1030,42 @@ public class MainRentree {
             Losange r = new Losange(p1, p2, p3, p4);
             boolean res = r.estValide();
             if (!res) {
-                System.out.println("+ Losange: estValide() 1 ok");
-                writer.write("+ Losange: estValide() 1 ok\n");
+                bPrint("+ Losange: estValide() 1 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Losange: estValide() 1 mauvais");
-                writer.write("- Losange: estValide() 1 mauvais\n");
+                bPrint("- Losange: estValide() 1 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Losange: Pas de methode estValide()");
-            writer.write("- Losange: Pas de methode estValide()\n");
-        }
-
-        try {
-            nbTest++;
-            Point p1 = new Point(5, 0);
-            Point p2 = new Point(0, 2);
-            Point p3 = new Point(5, 4);
-            Point p4 = new Point(10, 2);
-            Losange l = new Losange(p1, p2, p3, p4);
-            String r = l.getClass().getSuperclass().toString();
-            if (r.equals("class Model.Polygone")) {
-                System.out.println("+ Losange: héritage ok");
-                writer.write("+ Losange: héritage ok\n");
-            } else {
-                System.out.println("- Losange: héritage mauvais");
-                writer.write("- Losange: héritage mauvais\n");                
-            }
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Rectangle: Erreur héritage");
-            writer.write("- Rectangle: Erreur héritage\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(5, 0);
-            Point p2 = new Point(0, 2);
-            Point p3 = new Point(5, 4);
-            Point p4 = new Point(10, 2);
-            Losange l = new Losange(p1, p2, p3, p4);
-            String res = l.toString();
-            System.out.println("+ Losange: toString ok");
-            writer.write("+ Losange: toString ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Losange: Pas de toString");
-            writer.write("- Losange: Pas de toString\n");
-        }
-        // - Losange
-
-        // Triangle
-        try {
-            nbTest++;
-            Triangle t = new Triangle();
-            System.out.println("+ Triangle: Classe Triangle ok");
-            writer.write("+ Triangle: Classe Triangle ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Triangle: Pas de classe");
-            writer.write("- Triangle: Pas de classe\n");
+            bPrint("- Losange: Pas de methode estValide()");
         }
         try {
             nbTest++;
             Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 4);
+            Point p2 = new Point(0, 3);
             Point p3 = new Point(3, 0);
             Triangle t = new Triangle(p1, p2, p3);
-            System.out.println("+ Triangle: Triangle(Point, Point, Point) ok");
-            writer.write("+ Triangle: Triangle(Point, Point, Point) ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Triangle: Pas de constructeur Triangle(Point, Point, Point)");
-            writer.write("- Triangle: Pas de constructeur Triangle(Point, Point, Point)\n");
-        }
-
-        // Aire perimetre
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 4);
-            Point p3 = new Point(3, 0);
-            Triangle t = new Triangle(p1, p2, p3);
-            double res = t.aire();
-            if (res == 10) {
-                System.out.println("+ Triangle: aire() ok");
-                writer.write("+ Triangle: aire() ok\n");
+            boolean res = t.estValide();
+            if (res) {
+                bPrint("+ Triangle: estValide() 0 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Triangle: aire() mauvais");
-                writer.write("- Triangle: aire() mauvais\n");
+                bPrint("- Triangle: estValide() 0 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Triangle: Pas de methode aire()");
-            writer.write("- Triangle: Pas de methode aire()\n");
+            bPrint("- Triangle: Pas de methode estValide()");
         }
         try {
             nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 4);
-            Point p3 = new Point(3, 0);
-            Triangle t = new Triangle(p1, p2, p3);
-            double res = t.perimetre();
-            if (res == 12) {
-                System.out.println("+ Triangle: perimetre() ok");
-                writer.write("+ Triangle: perimetre() ok\n");
+            Cercle c = new Cercle(new Point(), 5.5);
+            boolean res = c.estValide();
+            if (res) {
+                bPrint("+ Cercle: estValide() 0 ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Triangle: perimetre() mauvais");
-                writer.write("- Triangle: perimetre() mauvais\n");
+                bPrint("- Cercle: estValide() 0 mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Triangle: Pas de methode perimetre()");
-            writer.write("- Triangle: Pas de methode perimetre()\n");
+            bPrint("- Cercle: Pas de methode estValide()");
         }
         try {
             nbTest++;
@@ -1121,16 +1075,13 @@ public class MainRentree {
             Triangle t = new Triangle(p1, p2, p3);
             boolean res = t.estIsocele();
             if (res) {
-                System.out.println("+ Triangle: estIsocele() ok");
-                writer.write("+ Triangle: estIsocele() ok\n");
+                bPrint("+ Triangle: estIsocele() ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Triangle: estIsocele() mauvais");
-                writer.write("- Triangle: estIsocele() mauvais\n");
+                bPrint("- Triangle: estIsocele() mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Triangle: Pas de methode estIsocele()");
-            writer.write("- Triangle: Pas de methode estIsocele()\n");
+            bPrint("- Triangle: Pas de methode estIsocele()");
         }
         try {
             nbTest++;
@@ -1140,16 +1091,13 @@ public class MainRentree {
             Triangle t = new Triangle(p1, p2, p3);
             boolean res = t.estRectangle();
             if (res) {
-                System.out.println("+ Triangle: estRectangle() ok");
-                writer.write("+ Triangle: estRectangle() ok\n");
+                bPrint("+ Triangle: estRectangle() ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Triangle: estRectangle() mauvais");
-                writer.write("- Triangle: estRectangle() mauvais\n");
+                bPrint("- Triangle: estRectangle() mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Triangle: Pas de methode estRectangle()");
-            writer.write("- Triangle: Pas de methode estRectangle()\n");
+            bPrint("- Triangle: Pas de methode estRectangle()");
         }
         try {
             nbTest++;
@@ -1159,180 +1107,26 @@ public class MainRentree {
             Triangle t = new Triangle(p1, p2, p3);
             boolean res = t.estEquilateral();
             if (!res) {
-                System.out.println("+ Triangle: estEquilateral() ok");
-                writer.write("+ Triangle: estEquilateral() ok\n");
+                bPrint("+ Triangle: estEquilateral() ok");
                 nbTestSuccess++;
             } else {
-                System.out.println("- Triangle: estEquilateral() mauvais");
-                writer.write("- Triangle: estEquilateral() mauvais\n");
+                bPrint("- Triangle: estEquilateral() mauvais");
             }
         } catch (Exception e) {
-            System.out.println("- Triangle: Pas de methode estEquilateral()");
-            writer.write("- Triangle: Pas de methode estEquilateral()\n");
+            bPrint("- Triangle: Pas de methode estEquilateral()");
         }
-
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 3);
-            Point p3 = new Point(3, 0);
-            Triangle t = new Triangle(p1, p2, p3);
-            boolean res = t.estValide();
-            if (res) {
-                System.out.println("+ Triangle: estValide() 0 ok");
-                writer.write("+ Triangle: estValide() 0 ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Triangle: estValide() 0 mauvais");
-                writer.write("- Triangle: estValide() 0 mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Triangle: Pas de methode estValide()");
-            writer.write("- Triangle: Pas de methode estValide()\n");
-        }
-
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 4);
-            Point p3 = new Point(3, 0);
-            Triangle t = new Triangle(p1, p2, p3);
-            String r = t.getClass().getSuperclass().toString();
-            if (r.equals("class Model.Polygone")) {
-                System.out.println("+ Triangle: héritage ok");
-                writer.write("+ Triangle: héritage ok\n");
-            } else {
-                System.out.println("- Triangle: héritage mauvais");
-                writer.write("- Triangle: héritage mauvais\n");                
-            }
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Triangle: Erreur héritage");
-            writer.write("- Triangle: Erreur héritage\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Point p2 = new Point(0, 4);
-            Point p3 = new Point(3, 0);
-            Triangle t = new Triangle(p1, p2, p3);
-            String res = t.toString();
-            System.out.println("+ Triangle: toString ok");
-            writer.write("+ Triangle: toString ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Triangle: Pas de toString");
-            writer.write("- Triangle: Pas de toString\n");
-        }
-        // - Triangle
-
-        // Cercle
-        try {
-            nbTest++;
-            Cercle c = new Cercle();
-            System.out.println("+ Cercle: Classe Cercle ok");
-            writer.write("+ Cercle: Classe Cercle ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Cercle: Pas de classe");
-            writer.write("- Cercle: Pas de classe\n");
-        }
-        try {
-            nbTest++;
-            Cercle c = new Cercle(new Point(), 5.5);
-            System.out.println("+ Cercle: Cercle(Point, double) ok");
-            writer.write("+ Cercle: Cercle(Point, double) ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Cercle: Pas de constructeur Cercle(Point, double)");
-            writer.write("- Cercle: Pas de constructeur Cercle(Point, double)\n");
-        }
-        try {
-            nbTest++;
-            Cercle c = new Cercle(new Point(), 5.5);
-            double p = c.perimetre();
-            if (Math.abs(p - Math.PI * 2 * 5.5) < 0.001) {
-                System.out.println("+ Cercle: perimetre ok");
-                writer.write("+ Cercle: perimetre ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Cercle: perimetre mauvais");
-                writer.write("- Cercle: perimetre mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Cercle: Pas de méthode perimetre");
-            writer.write("- Cercle: Pas de méthode perimetre\n");
-        }
-        try {
-            nbTest++;
-            Cercle c = new Cercle(new Point(), 5.5);
-            double p = c.aire();
-            if (Math.abs(p - Math.PI * 5.5 * 5.5) < 0.001) {
-                System.out.println("+ Cercle: aire ok");
-                writer.write("+ Cercle: aire ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Cercle: aire mauvais");
-                writer.write("- Cercle: aire mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Cercle: Pas de méthode aire");
-            writer.write("- Cercle: Pas de méthode aire\n");
-        }
-        try {
-            nbTest++;
-            Cercle c = new Cercle(new Point(), 5.5);
-            boolean res = c.estValide();
-            if (res) {
-                System.out.println("+ Cercle: estValide() 0 ok");
-                writer.write("+ Cercle: estValide() 0 ok\n");
-                nbTestSuccess++;
-            } else {
-                System.out.println("- Cercle: estValide() 0 mauvais");
-                writer.write("- Cercle: estValide() 0 mauvais\n");
-            }
-        } catch (Exception e) {
-            System.out.println("- Cercle: Pas de methode estValide()");
-            writer.write("- Cercle: Pas de methode estValide()\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Cercle c = new Cercle(p1, 5.5);
-            String r = c.getClass().getSuperclass().toString();
-            if (r.equals("class Model.Polygone")) {
-                System.out.println("+ Cercle: héritage ok");
-                writer.write("+ Cercle: héritage ok\n");
-            } else {
-                System.out.println("- Cercle: héritage mauvais");
-                writer.write("- Cercle: héritage mauvais\n");                
-            }
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Cercle: Erreur héritage");
-            writer.write("- Cercle: Erreur héritage\n");
-        }
-        try {
-            nbTest++;
-            Point p1 = new Point(0, 0);
-            Cercle c = new Cercle(p1, 5.5);
-            String res = c.toString();
-            System.out.println("+ Cercle: toString ok");
-            writer.write("+ Cercle: toString ok\n");
-            nbTestSuccess++;
-        } catch (Exception e) {
-            System.out.println("- Cercle: Pas de toString");
-            writer.write("- Cercle: Pas de toString\n");
-        }
-        // - Cercle
-
-        System.out.println("Nombre total de tests: " + nbTest);
-        writer.write("\nNombre total de tests: " + nbTest);
-        System.out.println("Nombre total de tests passés: " + nbTestSuccess);
-        writer.write("\nNombre total de tests passés: " + nbTestSuccess);
-        System.out.println("Note sur 20 : " + (double) nbTestSuccess * 20 / nbTest);
-        writer.write("\nNote sur 20 : " + (double) nbTestSuccess * 20 / nbTest);
+        /// - ESTVALIDE ///
+        
+        bPrint("\n####### RESULTATS #######");
+        bPrint("Nombre total de tests: " + nbTest);
+        bPrint("Nombre total de tests passés: " + nbTestSuccess);
+        bPrint("Note sur 20 : " + (double) nbTestSuccess * 20 / nbTest);
 
         writer.close();
+    }
+    
+    public void bPrint(String s) throws IOException {
+        System.out.println(s);
+        writer.write(s+"\n");
     }
 }
