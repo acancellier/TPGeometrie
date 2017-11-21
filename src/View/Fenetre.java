@@ -5,19 +5,34 @@
  */
 package View;
 
+import Model.Polygone;
+import java.awt.Color;
+
 /**
  *
- * @author Julien
+ * @author Anthony
  */
 public class Fenetre extends javax.swing.JFrame {
+
+    //On déclare notre panel
+    private DrawingPanel dp;
 
     /**
      * Creates new form Fenetre
      */
     public Fenetre() {
         initComponents();
+        dp = new DrawingPanel();
+        dp.setBackground(Color.white);
+        this.setContentPane(dp);
     }
-
+    /**
+     * Ajoute la figure en paramètre au JPanel de dessin
+     * @param p polygone à ajouter
+     */
+    public void addFigure(Polygone p){
+        dp.addFigure(p);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,7 +55,7 @@ public class Fenetre extends javax.swing.JFrame {
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Dessiner");
+        jMenu3.setText("Construire");
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -49,11 +64,11 @@ public class Fenetre extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 379, Short.MAX_VALUE)
+            .addGap(0, 421, Short.MAX_VALUE)
         );
 
         pack();

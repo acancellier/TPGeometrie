@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author csnd2342
@@ -61,6 +63,10 @@ public class Carre extends Polygone{
             }
         }
         return false;
+    }
+    @Override
+    public void draw(Graphics g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     @Override
     public String toString() {

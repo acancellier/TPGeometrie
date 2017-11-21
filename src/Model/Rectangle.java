@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author csnd2342
@@ -60,7 +62,12 @@ public class Rectangle extends Polygone{
         }
         return false;
     }
-
+    @Override
+    public void draw(Graphics g){
+        double w = new Segment(this.getPoint(0), this.getPoint(1)).longueur();
+        double h = new Segment(this.getPoint(0), this.getPoint(3)).longueur();
+        g.drawRect((int) this.getPoint(0).getX(), (int) this.getPoint(0).getY(), (int) w, (int) h);
+    }
     @Override
     public String toString() {
         return "Rectangle{" + "points=" + points + '}';

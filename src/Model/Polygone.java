@@ -5,22 +5,25 @@
  */
 package Model;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author csnd2342
  */
 public abstract class Polygone {
+
     private int num;
     private String nom;
     protected Point[] points;
-    
-    public Polygone(){
-        this.num =0 ;
+
+    public Polygone() {
+        this.num = 0;
         this.nom = "";
     }
-    
-    public Polygone(java.lang.String nom){
-        this.num =0;
+
+    public Polygone(java.lang.String nom) {
+        this.num = 0;
         this.nom = nom;
     }
 
@@ -39,8 +42,8 @@ public abstract class Polygone {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    
-        /**
+
+    /**
      * Projette un point sur une droite. Calcule le projeté du point C sur la
      * droite (AB). Le point M retourné se trouve donc sur la droite (AB). et le
      * segment [MC] constitue la hauteur du triangle issue de [AB]
@@ -55,6 +58,7 @@ public abstract class Polygone {
                 / (Math.sqrt(B.getX() - A.getX()) + Math.sqrt(B.getY() - A.getY()));
         return new Point(B.getX() + (B.getX() - A.getX()) * X, B.getY() + (A.getY() - A.getY()) * X);
     }
+
     public Point getPoint(int index) {
         return points[index];
     }
@@ -62,13 +66,15 @@ public abstract class Polygone {
     public void setPoint(int index, Point point) {
         this.points[index] = point;
     }
-    
+
+    public abstract double aire();
+
+    public abstract double perimetre();
+
+    public abstract void draw(Graphics g);
+
     @Override
     public String toString() {
         return "Polygone{" + "num=" + num + ", nom=" + nom + '}';
     }
-          
-    
-    
-            
 }

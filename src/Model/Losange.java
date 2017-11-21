@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author Laura
@@ -68,6 +70,11 @@ public class Losange extends Polygone{
     @Override
     public String toString() {
         return "Losange{" + "points=" + points + '}';
+    }
+
+    @Override
+    public void draw(Graphics g) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
  
